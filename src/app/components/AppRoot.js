@@ -11,7 +11,6 @@ class AppRoot extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "Spotify",
       inputs:{
         artist: "",
         track: "",
@@ -20,11 +19,24 @@ class AppRoot extends React.Component {
         genre: ""
       },
       advanced: false,
+      results: {}
     };
   }
 
   shouldComponentUpdate () {
     return React.addons.PureRenderMixin.shouldComponentUpdate.apply(this, arguments);
+  }
+
+  buildUrl() {
+    var base = "https://api.spotify.com/v1/search?type=track&q=";
+    var suffix = "";
+    Object.keys(this.state.inputs).map(key => {
+      if (this.state.inputs[key] != "") {
+        suffix = suffix.concat(key + ":" + this.state.inputs[key] + "%20");
+      }
+    });
+    var full_url = base.concat(suffix);
+    return full_url;
   }
 
   handleAdvanced() {
@@ -53,7 +65,7 @@ class AppRoot extends React.Component {
   }
 
   handleButtonClick() {
-    console.log(this.state);
+    console.log(this.buildUrl());
   }
   /*
   * @method render
