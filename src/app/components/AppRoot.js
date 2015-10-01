@@ -2,6 +2,7 @@ import React from 'react/addons';
 import axios from 'axios';
 import config from '../../../config/app';
 import SpotifySearch from './spotify-search';
+import SpotifyResults from './spotify-results';
 /*
 * @class AppRoot
 * @extends React.Component
@@ -19,7 +20,9 @@ class AppRoot extends React.Component {
         genre: ""
       },
       advanced: false,
-      results: {}
+      page: 1,
+      items: [],
+      total: 0
     };
   }
 
@@ -35,7 +38,7 @@ class AppRoot extends React.Component {
         suffix = suffix.concat(key + ":" + this.state.inputs[key] + "%20");
       }
     });
-    var full_url = base.concat(suffix);
+    var full_url = base.concat(suffix + "&limit=10" + "&offset=" + ((this.state.page*10)-10));
     return full_url;
   }
 
@@ -65,7 +68,23 @@ class AppRoot extends React.Component {
   }
 
   handleButtonClick() {
-    console.log(this.buildUrl());
+    var value = false;
+    Object.keys(this.state.inputs).map(key => {
+      if (this.state.inputs[key] != "") {
+        value = true;
+      }
+    });
+    if (value) {
+      var url = this.buildUrl();
+      axios.get(url)
+      .then((res) => {
+        console.log(res.data);
+        this.setState({
+          items: res.data.tracks.items,
+          total: res.data.tracks.total
+        })
+      });
+    }
   }
   /*
   * @method render
@@ -81,6 +100,11 @@ class AppRoot extends React.Component {
           handleButtonClick={this.handleButtonClick.bind(this)}
           advanced={this.state.advanced}
          />
+       <SpotifyResults
+         tracks={this.state.items}
+         page={this.state.page}
+         total={this.state.total}
+       />
       </div>
     );
   }
