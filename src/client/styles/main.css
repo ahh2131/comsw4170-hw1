@@ -1,23 +1,91 @@
-
-.appRoot {
-  border: 2px solid blue;
-  padding: 10px;
+.spotify-search-container {
+  width: 100%;
 }
 
-.cart {
-  border: 2px solid red;
-  padding: 10px;
-}
-.item {
-  border: 2px solid green;
-  padding: 10px;
+.spotify-search h1 {
+  text-align: center;
+  margin: 11px;
+  color: #2EBD59;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
+body {
+  margin: 0px;
+  font-family: 'Lato', sans-serif;
+}
+.search-container {
+  background-color: #f7f7f7;
+  height: 175px;
+  width: 100%;
 }
 
-li {
-  margin: 5px 0 5px 0;
+.input-container {
+  margin: 0 auto;
+  max-width: 29%;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 5px;
+}
+
+.input-container input {
+  height: 35px;
+  width: 279px;
+  font-size: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.input-container h2 {
+  text-align: left;
+  margin: 0px;
+  padding-left:4px;
+  padding-bottom:4px;
+  font-size:15px;
+}
+
+.button-container {
+  margin: 0 auto;
+  max-width: 40%;
+  text-align:center;
+}
+
+.advanced-container {
+  margin: 0 auto;
+  max-width: 29%;
+  text-align: right;
+  padding-bottom:10px;
+}
+
+.advanced-container a {
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.button-container .button {
+  margin: 0 auto;
+  max-width: 80%;
+  text-align:center;
+  width: 212px;
+  height: 29px;
+  background-color: #2EBD59;
+  border-radius: 21px;
+  color: white;
+  padding-top:11px;
+  transition: background-color .15s ease,border-color .15s ease,color .15s ease;
+  cursor: pointer;
+}
+
+.button:hover {
+  background:  #28DA5D;
+}
+
+.button:focus {
+}
+
+*:focus {
+    outline: 0;
+}
+
+.button-container .button span {
+  letter-spacing: 2px;
+  font-size: 15px;
 }

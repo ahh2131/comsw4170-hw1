@@ -1,43 +1,77 @@
 import React from 'react/addons';
-import Cart from './Cart';
-
+import axios from 'axios';
 import config from '../../../config/app';
-
+import SpotifySearch from './spotify-search';
 /*
- * @class AppRoot
- * @extends React.Component
- */
+* @class AppRoot
+* @extends React.Component
+*/
 class AppRoot extends React.Component {
 
-  /*
-   * AppRootly PureRenderMixin
-   *
-   * in React 0.13 there is no way to attach mixins to ES6 classes
-   * this is a workaround to solve this
-   * http://facebook.github.io/react/blog/2015/01/27/react-v0.13.0-beta-1.html#mixins
-   *
-   * @method shouldComponentUpdate
-   * @returns {Boolean}
-   */
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: "Spotify",
+      inputs:{
+        artist: "",
+        track: "",
+        album: "",
+        year: "",
+        genre: ""
+      },
+      advanced: false,
+    };
+  }
+
   shouldComponentUpdate () {
     return React.addons.PureRenderMixin.shouldComponentUpdate.apply(this, arguments);
   }
 
+  handleAdvanced() {
+    if (this.state.advanced) {
+      this.setState({
+        advanced: !this.state.advanced,
+        inputs: {
+          track: "",
+          year: "",
+          genre: "",
+          album: ""
+        }
+      })
+    } else {
+      this.setState({
+        advanced: !this.state.advanced
+      });
+    }
+  }
+
+  handleInputChange(type, evt) {
+    var obj = Object.assign({}, this.state);
+    obj.inputs[type] = evt.target.value;
+    this.setState(obj.inputs);
+  }
+
+  handleButtonClick() {
+    console.log(this.state);
+  }
   /*
-   * @method render
-   * @returns {JSX}
-   */
+  * @method render
+  * @returns {JSX}
+  */
   render () {
-    return <div className="appRoot">
-      <h1>{config.title}</h1>
-      <Cart cart={this.props.state.cart} />
-    </div>;
+    return (
+      <div className="spotify-search-container">
+        <SpotifySearch
+          inputs={this.state.inputs}
+          handleAdvanced={this.handleAdvanced.bind(this)}
+          handleInputChange={this.handleInputChange.bind(this)}
+          handleButtonClick={this.handleButtonClick.bind(this)}
+          advanced={this.state.advanced}
+         />
+      </div>
+    );
   }
 }
 
-// Prop types validation
-AppRoot.propTypes = {
-  state: React.PropTypes.object.isRequired,
-};
 
 export default AppRoot;
