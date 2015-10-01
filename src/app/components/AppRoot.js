@@ -35,7 +35,8 @@ class AppRoot extends React.Component {
           track: "",
           year: "",
           genre: "",
-          album: ""
+          album: "",
+          artist: this.state.inputs.artist
         }
       })
     } else {

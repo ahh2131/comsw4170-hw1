@@ -12,6 +12,7 @@ class SpotifySearch extends React.Component {
       return (
         <AdvancedForm
           handleInputChange={this.props.handleInputChange}
+          inputs={this.props.inputs}
          />
       );
     } else {

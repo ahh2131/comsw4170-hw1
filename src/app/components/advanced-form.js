@@ -11,6 +11,7 @@ class AdvancedForm extends React.Component {
              placeholder="Type an artist name"
              type="artist"
              onChange={this.props.handleInputChange}
+             value={this.props.inputs.artist}
             >
             </TextInput>
             <TextInput
@@ -18,6 +19,7 @@ class AdvancedForm extends React.Component {
              placeholder="Type a song name"
              type="track"
              onChange={this.props.handleInputChange}
+             value={this.props.inputs.track}
             >
             </TextInput>
           </div>
@@ -27,6 +29,7 @@ class AdvancedForm extends React.Component {
                placeholder="Type an album name"
                type="album"
                onChange={this.props.handleInputChange}
+               value={this.props.inputs.album}
               >
             </TextInput>
             <TextInput
@@ -34,6 +37,7 @@ class AdvancedForm extends React.Component {
              placeholder="Type a genre"
              type="genre"
              onChange={this.props.handleInputChange}
+             value={this.props.inputs.genre}
             >
             </TextInput>
           </div>
@@ -43,6 +47,7 @@ class AdvancedForm extends React.Component {
               placeholder="Enter a year"
               onChange={this.props.handleInputChange}
               type="year"
+              value={this.props.inputs.year}
             />
           <TextInput
             name="hidden"
