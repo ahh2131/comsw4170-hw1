@@ -19,7 +19,7 @@ class SpotifySearch extends React.Component {
       return (
         <TextInput
          type="artist"
-         name="Search by artist"
+         name="Search by Artist"
          placeholder="e.g. Kanye West, Lorde, Diplo"
          onChange={this.props.handleInputChange}
          value={this.props.inputs.artist}

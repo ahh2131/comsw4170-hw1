@@ -3,6 +3,9 @@ import axios from 'axios';
 import config from '../../../config/app';
 import SpotifySearch from './spotify-search';
 import SpotifyResults from './spotify-results';
+import 'babel-core/polyfill';
+
+
 /*
 * @class AppRoot
 * @extends React.Component
