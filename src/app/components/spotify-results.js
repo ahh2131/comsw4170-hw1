@@ -5,10 +5,9 @@ class SpotifyResults extends React.Component {
 
   displayTracks() {
     return this.props.tracks.map((track, i) => {
-      var key = i + ((this.props.page-1)*10);
       return (
         <SpotifyTrack
-          key={key}
+          key={track.id}
           track={track}
         />
       );

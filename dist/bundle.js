@@ -24694,12 +24694,9 @@
 	  _createClass(SpotifyResults, [{
 	    key: 'displayTracks',
 	    value: function displayTracks() {
-	      var _this = this;
-
 	      return this.props.tracks.map(function (track, i) {
-	        var key = i + (_this.props.page - 1) * 10;
 	        return _reactAddons2['default'].createElement(_spotifyTrack2['default'], {
-	          key: key,
+	          key: track.id,
 	          track: track
 	        });
 	      });

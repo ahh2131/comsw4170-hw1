@@ -65,4 +65,6 @@ Finally, there is a next button and a previous button, which allows the user
 to see more results. These only appear when there are more results, as to not
 confuse the user. This satisfies the user control and freedom heuristic, as well
 as error prevention, because it does not let the user press next or previous
-if there are no songs, which would result in an error.
+if there are no songs, which would result in an error. Also, the buttons
+bring the user back to the top of the page, so they can scroll down the tracks
+in order, and don't have to scroll back up.
