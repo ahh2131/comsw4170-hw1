@@ -31,10 +31,38 @@ Pressing the advanced button opens up more fields, which are all
 consistent in styling and in content. It is clear what each field
 requires, and the user can fill out as many field as they want
 and search for their track. This gives the user many freedoms, as
-they may not know all the details of their track.
+they may not know all the details of their track. This satisfied the
+aesthetic and minimalist design heuristic, as well as the consistency
+heuristic, as I give enough information so that the user knows what to
+do, and make sure each field not only looks the same, but provides
+the same kind of information.
 
 Furthermore, I persist the artist name between the two forms, so
 that the user does not have to retype them. If a user wants to do
 a more advanced search, the artist name will remain in the new artist
 field, and the user can continue to the other ones. Each placeholder
-contains instructions on what needs to be inputted in the field.
+contains instructions on what needs to be inputted in the field. All
+these attributes satisfy the flexibility and efficiency of use heuristic.
+The user never has to input a field he has already filled out, and the
+easy traversal between each form makes it simple for the user to search
+the way he wants. The help and documentation heuristic is also satisfied
+with the text in each placeholder, reminding the user what needs to be
+inputted.
+
+After searching, tracks appear below the search bar, and the form remains
+there so that the user can specify more conditions if they wish to.
+This satisfied the user control and freedom heuristic, as the user retains
+the ability to traverse between listening to music and searching for it.
+Each track
+displays the album cover, followed by the track name and artist name, and
+finally a player in order to hear a preview. The track name is the most
+important, since that is what the user is looking for, so it is the most
+prominent piece. Each audio track has appropriate controls for the user.
+Names that are too long are sliced so that the UI remains consistent for
+every track, satisfying the consistency and standards heuristic.
+
+Finally, there is a next button and a previous button, which allows the user
+to see more results. These only appear when there are more results, as to not
+confuse the user. This satisfies the user control and freedom heuristic, as well
+as error prevention, because it does not let the user press next or previous
+if there are no songs, which would result in an error.

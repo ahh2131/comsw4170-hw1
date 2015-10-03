@@ -33,7 +33,7 @@ class AppRoot extends React.Component {
     return React.addons.PureRenderMixin.shouldComponentUpdate.apply(this, arguments);
   }
 
-  buildUrl() {
+  buildUrl(page) {
     var base = "https://api.spotify.com/v1/search?type=track&q=";
     var suffix = "";
     Object.keys(this.state.inputs).map(key => {
@@ -41,7 +41,7 @@ class AppRoot extends React.Component {
         suffix = suffix.concat(key + ":" + this.state.inputs[key] + "%20");
       }
     });
-    var full_url = base.concat(suffix + "&limit=10" + "&offset=" + ((this.state.page*10)-10));
+    var full_url = base.concat(suffix + "&limit=10" + "&offset=" + ((page*10)-10));
     return full_url;
   }
 
@@ -71,6 +71,7 @@ class AppRoot extends React.Component {
   }
 
   handleButtonClick() {
+    this.setState({page: 1});
     var value = false;
     Object.keys(this.state.inputs).map(key => {
       if (this.state.inputs[key] != "") {
@@ -78,16 +79,39 @@ class AppRoot extends React.Component {
       }
     });
     if (value) {
-      var url = this.buildUrl();
+      var url = this.buildUrl(1);
       axios.get(url)
       .then((res) => {
-        console.log(res.data);
         this.setState({
           items: res.data.tracks.items,
           total: res.data.tracks.total
         })
       });
     }
+  }
+
+  pageGet(page) {
+    var value = false;
+    Object.keys(this.state.inputs).map(key => {
+      if (this.state.inputs[key] != "") {
+        value = true;
+      }
+    });
+    if (value) {
+      var url = this.buildUrl(page);
+      axios.get(url)
+      .then((res) => {
+        this.setState({
+          items: res.data.tracks.items,
+          total: res.data.tracks.total,
+          page: page
+        })
+      });
+    }
+  }
+
+  next() {
+    this.pageGet(this.state.page+1);
   }
   /*
   * @method render
@@ -107,6 +131,7 @@ class AppRoot extends React.Component {
          tracks={this.state.items}
          page={this.state.page}
          total={this.state.total}
+         next={this.next.bind(this)}
        />
       </div>
     );

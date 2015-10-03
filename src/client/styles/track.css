@@ -1,7 +1,7 @@
 .results-container {
   margin: 0 auto;
   max-width: 40%;
-  min-width: 650px;
+  min-width: 566px;
   padding-top:20px;
 }
 
@@ -17,10 +17,10 @@
 }
 
 .track-container {
+  height: 121px;
   margin-top:20px;
   margin-bottom:20px;
   padding-top:1px;
-  padding-bottom:1px;
   padding-left:1px;
   position: relative;
   background-color: #DDDDDD;
@@ -34,9 +34,18 @@
   padding-top: 20px;
 }
 
+.track-header span {
+  color: #636060;
+  font-size: 15px;
+}
+
+.track-header p {
+  display:inline;
+}
+
 .track-player {
   display: inline-block;
   position: absolute;
   margin-top: 70px;
-  left: 22%;
+  left: 25%;
 }
