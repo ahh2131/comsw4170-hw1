@@ -5,9 +5,10 @@ class SpotifyResults extends React.Component {
 
   displayTracks() {
     return this.props.tracks.map((track, i) => {
+      var key = i + ((this.props.page-1)*10);
       return (
         <SpotifyTrack
-          key={i+this.props.page}
+          key={key}
           track={track}
         />
       );
@@ -25,11 +26,22 @@ class SpotifyResults extends React.Component {
     }
   }
 
+  displayPrevious() {
+    if (this.props.page > 1) {
+      return (
+        <div onClick={this.props.previous} className="previous-button">
+          Previous
+        </div>
+      );
+    }
+  }
+
   render() {
     return (
       <div className="results-container">
         {this.displayTracks()}
         <div className="results-footer">
+          {this.displayPrevious()}
           {this.displayNext()}
         </div>
       </div>

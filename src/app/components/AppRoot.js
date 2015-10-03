@@ -112,6 +112,12 @@ class AppRoot extends React.Component {
 
   next() {
     this.pageGet(this.state.page+1);
+    window.scrollBy(0, -4000);
+  }
+
+  previous() {
+    this.pageGet(this.state.page-1);
+    window.scrollBy(0, -4000);
   }
   /*
   * @method render
@@ -132,6 +138,7 @@ class AppRoot extends React.Component {
          page={this.state.page}
          total={this.state.total}
          next={this.next.bind(this)}
+         previous={this.previous.bind(this)}
        />
       </div>
     );

@@ -11,7 +11,6 @@ class SpotifyTrack extends React.Component {
   }
 
   render() {
-    console.log(this.props.track);
     return (
       <div className="track-container">
         <div className="album-cover">

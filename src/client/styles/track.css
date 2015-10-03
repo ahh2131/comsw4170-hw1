@@ -49,3 +49,19 @@
   margin-top: 70px;
   left: 25%;
 }
+
+.results-footer {
+  margin: 0 auto;
+  max-width:40%;
+  text-align:center;
+  padding-bottom:60px;
+}
+
+.results-footer .previous-button {
+  float: left;
+  cursor: pointer;
+}
+
+.results-footer .next-button {
+  cursor: pointer;
+}

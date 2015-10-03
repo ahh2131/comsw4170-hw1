@@ -23375,6 +23375,13 @@
 	    key: 'next',
 	    value: function next() {
 	      this.pageGet(this.state.page + 1);
+	      window.scrollBy(0, -4000);
+	    }
+	  }, {
+	    key: 'previous',
+	    value: function previous() {
+	      this.pageGet(this.state.page - 1);
+	      window.scrollBy(0, -4000);
 	    }
 
 	    /*
@@ -23398,7 +23405,8 @@
 	          tracks: this.state.items,
 	          page: this.state.page,
 	          total: this.state.total,
-	          next: this.next.bind(this)
+	          next: this.next.bind(this),
+	          previous: this.previous.bind(this)
 	        })
 	      );
 	    }
@@ -24689,8 +24697,9 @@
 	      var _this = this;
 
 	      return this.props.tracks.map(function (track, i) {
+	        var key = i + (_this.props.page - 1) * 10;
 	        return _reactAddons2['default'].createElement(_spotifyTrack2['default'], {
-	          key: i + _this.props.page,
+	          key: key,
 	          track: track
 	        });
 	      });
@@ -24708,6 +24717,17 @@
 	      }
 	    }
 	  }, {
+	    key: 'displayPrevious',
+	    value: function displayPrevious() {
+	      if (this.props.page > 1) {
+	        return _reactAddons2['default'].createElement(
+	          'div',
+	          { onClick: this.props.previous, className: 'previous-button' },
+	          'Previous'
+	        );
+	      }
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _reactAddons2['default'].createElement(
@@ -24717,6 +24737,7 @@
 	        _reactAddons2['default'].createElement(
 	          'div',
 	          { className: 'results-footer' },
+	          this.displayPrevious(),
 	          this.displayNext()
 	        )
 	      );
@@ -24774,7 +24795,6 @@
 	  }, {
 	    key: "render",
 	    value: function render() {
-	      console.log(this.props.track);
 	      return _reactAddons2["default"].createElement(
 	        "div",
 	        { className: "track-container" },
