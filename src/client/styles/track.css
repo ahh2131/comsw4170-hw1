@@ -1,0 +1,42 @@
+.results-container {
+  margin: 0 auto;
+  max-width: 40%;
+  min-width: 650px;
+  padding-top:20px;
+}
+
+.album-cover img {
+  height: 120px;
+  width: 120px;
+}
+
+.album-cover {
+  height: 120px;
+  width: 120px;
+  display: inline-block;
+}
+
+.track-container {
+  margin-top:20px;
+  margin-bottom:20px;
+  padding-top:1px;
+  padding-bottom:1px;
+  padding-left:1px;
+  position: relative;
+  background-color: #DDDDDD;
+}
+
+.track-header {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 18px;
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.track-player {
+  display: inline-block;
+  position: absolute;
+  margin-top: 70px;
+  left: 22%;
+}
