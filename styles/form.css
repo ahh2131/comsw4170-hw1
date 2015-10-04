@@ -1,0 +1,13 @@
+.form-row {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.form-row .input-container {
+  display: inline-block;
+  padding-right: 19px;
+}
+
+.form-row .input-container input {
+  width: 190px;
+}

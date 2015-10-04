@@ -4,7 +4,7 @@ UI HW 1
 
 My application is built using React JS + webpack, so all my js files
 are bundled in bundle.js. You can run my app by simply dragging the
-src/client/index.html file into a browser. Even though it is bundled up, you
+index.html file into a browser. Even though it is bundled up, you
 can see the neatly organized javascript in the src/app/components
 folder. This javascript consists of react classes, which render the
 DOM for the search form, each field, results, and each track.
