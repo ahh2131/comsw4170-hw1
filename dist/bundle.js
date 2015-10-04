@@ -58,23 +58,9 @@
 
 	var attachElement = document.getElementById('app');
 
-	var state = {
-	  cart: {
-	    title: 'My Cart',
-	    items: [{
-	      title: 'Item 1',
-	      price: 12
-	    }, {
-	      title: 'Item 2',
-	      price: 21
-	    }, {
-	      title: 'Item 3',
-	      price: 33
-	    }]
-	  }
-	};
-
 	var app;
+
+	var state = {};
 
 	_debug2['default'].enable('myApp*');
 
@@ -24336,7 +24322,7 @@
 
 	var config = {};
 
-	config.title = 'My React App';
+	config.title = 'Spotify Search';
 
 	module.exports = config;
 

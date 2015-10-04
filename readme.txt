@@ -2,6 +2,19 @@ Andreas Hadjigeorgiou
 ahh2131
 UI HW 1
 
+My application is built using React JS + webpack, so all my js files
+are bundled in bundle.js. You can run my app by simply dragging the
+index.html file into a browser. Even though it is bundled up, you
+can see the neatly organized javascript in the src/app/components
+folder. This javascript consists of react classes, which render the
+DOM for the search form, each field, results, and each track. 
+
+Webpack takes all the dependencies as well as my code and bundles
+it into one javascript file, making it easy to deploy and run.
+
+CSS is found under styles, organized by major aspects of the app.
+
+
 Design Decisions
 
 I chose to make it clear that there was a search mechanism by
